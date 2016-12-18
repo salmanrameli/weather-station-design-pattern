@@ -7,11 +7,12 @@ public class StatisticsDisplay implements Observer, DisplayElement {
 	private int numReadings;
 	private WeatherData weatherData;
 
-	public StatisticsDisplay(WeatherData weatherData) {
+	public StatisticsDisplay(WeatherData weatherData) { //registering StatisticsDisplay as an observer to WeatherData class
 		this.weatherData = weatherData;
 		weatherData.registerObserver(this);
 	}
 
+	//calculating the highest and lowest temperature
 	public void update(float temp, float humidity, float pressure) {
 		tempSum += temp;
 		numReadings++;
@@ -27,6 +28,7 @@ public class StatisticsDisplay implements Observer, DisplayElement {
 		display();
 	}
 
+	//display the info about temperature
 	public void display() {
 		System.out.println("Avg/Max/Min temperature = " + (tempSum / numReadings)
 			+ "/" + maxTemp + "/" + minTemp);

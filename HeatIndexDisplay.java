@@ -4,16 +4,17 @@ public class HeatIndexDisplay implements Observer, DisplayElement {
 	float heatIndex = 0.0f;
 	private WeatherData weatherData;
 
-	public HeatIndexDisplay(WeatherData weatherData) {
+	public HeatIndexDisplay(WeatherData weatherData) { //registering HeatIndexDisplay as an observer to WeatherData class
 		this.weatherData = weatherData;
 		weatherData.registerObserver(this);
 	}
 
-	public void update(float t, float rh, float pressure) {
+	public void update(float t, float rh, float pressure) { //send parameters to heatIndex function
 		heatIndex = computeHeatIndex(t, rh);
 		display();
 	}
-	
+
+	//computing the heat index
 	private float computeHeatIndex(float t, float rh) {
 		float index = (float)((16.923 + (0.185212 * t) + (5.37941 * rh) - (0.100254 * t * rh) 
 			+ (0.00941695 * (t * t)) + (0.00728898 * (rh * rh)) 
@@ -26,6 +27,7 @@ public class HeatIndexDisplay implements Observer, DisplayElement {
 		return index;
 	}
 
+	//display the latest heat index
 	public void display() {
 		System.out.println("Heat index is " + heatIndex);
 	}

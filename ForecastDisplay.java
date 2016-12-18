@@ -5,19 +5,19 @@ public class ForecastDisplay implements Observer, DisplayElement {
 	private float lastPressure;
 	private WeatherData weatherData;
 
-	public ForecastDisplay(WeatherData weatherData) {
+	public ForecastDisplay(WeatherData weatherData) { //registering ForecastDisplay as an observer to WeatherData class
 		this.weatherData = weatherData;
 		weatherData.registerObserver(this);
 	}
 
-	public void update(float temp, float humidity, float pressure) {
+	public void update(float temp, float humidity, float pressure) { //updating the current pressure reading
         lastPressure = currentPressure;
 		currentPressure = pressure;
 
 		display();
 	}
 
-	public void display() {
+	public void display() { //display the latest forecast
 		System.out.print("Forecast: ");
 		if (currentPressure > lastPressure) {
 			System.out.println("Improving weather on the way!");
