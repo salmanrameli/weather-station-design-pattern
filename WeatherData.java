@@ -1,5 +1,3 @@
-//package headfirst.designpatterns.observer.weather;
-
 import java.util.*;
 
 public class WeatherData implements Subject { //WeatherData implements Subject interface
@@ -8,7 +6,7 @@ public class WeatherData implements Subject { //WeatherData implements Subject i
 	private float humidity;
 	private float pressure;
 
-	public WeatherData() {
+	WeatherData() {
 		observers = new ArrayList<Observer>();
 	} //create an array list in the constructor
 	
@@ -23,17 +21,17 @@ public class WeatherData implements Subject { //WeatherData implements Subject i
 		}
 	}
 	
-	public void notifyObservers() { //giving observers new informations
+	public void notifyObservers() { //giving observers new information
 		for (Observer observer : observers) {
 			observer.update(temperature, humidity, pressure);
 		}
 	}
 	
-	public void measurementsChanged() {
+	private void measurementsChanged() {
 		notifyObservers(); //notify the observers whenever the measurements have been updated
 	}
 	
-	public void setMeasurements(float temperature, float humidity, float pressure) { //giving the program some parameters just to test whether the program is running correctly or not
+	void setMeasurements(float temperature, float humidity, float pressure) { //giving the program some parameters just to test whether the program is running correctly or not
 		this.temperature = temperature;
 		this.humidity = humidity;
 		this.pressure = pressure;

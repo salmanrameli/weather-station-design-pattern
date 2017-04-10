@@ -1,5 +1,3 @@
-//package headfirst.designpatterns.observer.weather;
-
 public class StatisticsDisplay implements Observer, DisplayElement {
 	private float maxTemp = 0.0f;
 	private float minTemp = 200;
@@ -7,7 +5,7 @@ public class StatisticsDisplay implements Observer, DisplayElement {
 	private int numReadings;
 	private WeatherData weatherData;
 
-	public StatisticsDisplay(WeatherData weatherData) { //registering StatisticsDisplay as an observer to WeatherData class
+	StatisticsDisplay(WeatherData weatherData) { //registering StatisticsDisplay as an observer to WeatherData class
 		this.weatherData = weatherData;
 		weatherData.registerObserver(this);
 	}

@@ -1,5 +1,3 @@
-//package headfirst.designpatterns.observer.weather;
-
 public interface Subject {
 	//methods that take an observer as an argument; to be registered or removed
 	public void registerObserver(Observer o);
